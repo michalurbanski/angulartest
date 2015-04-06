@@ -1,12 +1,13 @@
-<html>
+<html ng-app="mainModule">
 <head>
 	<title>First angular.js app</title>
 	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="modulepattern.js"></script>
 </head>
-<body ng-app>
+<body ng-controller="MainCtrl">
 	<h1>Welcome to angular app</h1>
 	{{ 50/10 }}
+	{{message}}
 </body>
 </html>
