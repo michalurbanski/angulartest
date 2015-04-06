@@ -7,25 +7,28 @@ function log(message){
 	}
 }
 
+// IIFE - Immediately Invoked Function Expression (avoid creating global variables)
+(function(){
+	var createPerson = function(){
 
-var createPerson = function(){
+		var firstLanguage = function(){
+			log("Hi");
+		};
 
-	var firstLanguage = function(){
-		log("Hi");
+		var secondLanguage = function(){
+			log("Hola");
+		};
+
+		return {
+			speakEnglish : firstLanguage, 
+			speakSpanish : secondLanguage
+		};
 	};
-
-	var secondLanguage = function(){
-		log("Hola");
-	};
-
-	return {
-		speakEnglish : firstLanguage, 
-		speakSpanish : secondLanguage
-	};
-};
 
 // sample usage
 var person = createPerson(); 
 
 person.speakEnglish(); 
 person.speakSpanish(); 
+
+}());
