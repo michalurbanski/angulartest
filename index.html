@@ -9,5 +9,12 @@
 	<h1>Welcome to angular app</h1>
 	{{ 50/10 }}
 	{{message}}
+
+	<div>
+		This page has been created using {{os.name}}
+		<div>
+			<img ng-src="{{os.src}}" title="{{os.name}}"><!-- ng-src required, in other case browser tries to download what's in src tag --> 
+		</div>
+	</div>
 </body>
 </html>

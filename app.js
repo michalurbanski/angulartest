@@ -8,7 +8,15 @@
 
 	// in current version of angular controller needs to be in module
 	var MainCtrl = function($scope){
+
+		var os = {
+			src : "http://41.media.tumblr.com/802e00b2139ae9d77f172d586ab9fe42/tumblr_njplfbZDeI1s29bjuo1_1280.png",
+			name: "Ubuntu"
+
+		}
+
 		$scope.message = "Hello angular";
+		$scope.os = os; 
 	};
 
 
