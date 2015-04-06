@@ -8,8 +8,24 @@ function log(message){
 }
 
 
-// var person = function(){
+var createPerson = function(){
 
-// };
+	var firstLanguage = function(){
+		log("Hi");
+	};
 
-// person.speak
+	var secondLanguage = function(){
+		log("Hola");
+	};
+
+	return {
+		speakEnglish : firstLanguage, 
+		speakSpanish : secondLanguage
+	};
+};
+
+// sample usage
+var person = createPerson(); 
+
+person.speakEnglish(); 
+person.speakSpanish(); 
