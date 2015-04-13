@@ -14,8 +14,17 @@
 			name: "Ubuntu"
 		}
 
+		$scope.search = function(username){
+			$http.get("https://api.github.com/users/" + username)
+				.then(onUserComplete, onErrorMessage); // error function is optional as second argument				
+		}
+
 		var onUserComplete = function(response){
 			$scope.user = response.data; // automatically deserialized by angular
+
+			// additional call for repos based on user find result
+			$http.get($scope.user.repos_url)
+				.then(onRepos, onErrorRepos);
 		}
 
 		var onErrorMessage = function(response){
@@ -24,9 +33,12 @@
 			console.log(message);
 		}
 
-		$scope.search = function(username){
-			$http.get("https://api.github.com/users/" + username)
-				.then(onUserComplete, onErrorMessage); // error function is optional as second argument				
+		var onRepos = function(response){
+			$scope.repos = response.data; 
+		}
+
+		var onErrorRepos = function(reason){
+			$scope.errorMessage = "Cannot fetch user repos for user " + $scope.user.name;
 		}
 
 		$scope.message = "Hello angular";
