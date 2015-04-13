@@ -42,6 +42,7 @@
 		}
 
 		$scope.message = "Hello angular";
+		$scope.sortOrder = "-stargazers_count"; // allows dynamic sorting
 		$scope.os = os; 
 
 

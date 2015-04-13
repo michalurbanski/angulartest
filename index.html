@@ -32,6 +32,12 @@
 		</form>
 	</div>
 	<div>
+		Order: 
+		<select ng-model="sortOrder">
+			<option value="+name">Name</option>
+			<option value="-stargazers_count">Stars</option>
+			<option value="+language">Language</option>
+		</select> 
 		<table>
 			<thead>
 				<th>Name</th>
@@ -39,9 +45,12 @@
 				<th>Language</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat="repo in repos">
+				<!-- filter orderBy has to be included in ng-repeat clause, 
+					minus means descending order sort, 
+					'' denotes literal string instead of object property --> 
+				<tr ng-repeat="repo in repos | orderBy:sortOrder">
 					<td>{{repo.name}}</td>
-					<td>{{repo.stargazers_count}}</td>
+					<td>{{repo.stargazers_count | number}}</td>
 					<td>{{repo.language}}</td>
 				</tr>
 			</tbody>
