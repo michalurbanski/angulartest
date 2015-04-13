@@ -19,14 +19,20 @@
 		}
 
 		var onErrorMessage = function(response){
-			console.log("An error has occured");
+			var message = "An error has occured";
+			$scope.errorMessage = message;
+			console.log(message);
+		}
+
+		$scope.search = function(username){
+			$http.get("https://api.github.com/users/" + username)
+				.then(onUserComplete, onErrorMessage); // error function is optional as second argument				
 		}
 
 		$scope.message = "Hello angular";
 		$scope.os = os; 
 
-		$http.get("https://api.github.com/users/michalurbanski")
-				.then(onUserComplete, onErrorMessage); // error function is optional as second argument	
+
 	};
 
 

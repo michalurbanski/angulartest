@@ -13,11 +13,22 @@
 	<div>
 		This page has been created using {{os.name}}
 		<div>
-			<img ng-src="{{os.src}}" title="{{os.name}}" width="25%"><!-- ng-src required, in other case browser tries to download what's in src tag --> 
+			<img ng-src="{{os.src}}" title="{{os.name}}" width="25%"/><!-- ng-src required, in other case browser tries to download what's in src tag --> 
 		</div>
 		<div>
 			User name on github is: {{user.login}}
+			{{errorMessage}}
 		</div>
+	</div>
+	<div>
+		<div>
+			<div>{{username}}</div>
+			<img ng-src="{{user.avatar_url}}" title="{{user.name}}" width="25%"/>
+		</div>
+		<form name="searchUser">
+			<input type="search" placeholder="Username" ng-model="username"/>
+			<input type="submit" value="Search" ng-click="search(username);">
+		</form>
 	</div>
 </body>
 </html>
