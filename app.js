@@ -7,7 +7,7 @@
 
 
 	// in current version of angular controller needs to be in module
-	var MainCtrl = function($scope, $http){
+	var MainCtrl = function($scope, $http, $interval){
 
 		var os = {
 			src : "http://41.media.tumblr.com/802e00b2139ae9d77f172d586ab9fe42/tumblr_njplfbZDeI1s29bjuo1_1280.png",
@@ -50,7 +50,7 @@
 
 		var startCountdown = function(){
 
-
+			$interval(decrementCountdown, 1000, $scope.countdown); 
 		}
 
 		$scope.message = "Hello angular";
@@ -64,5 +64,5 @@
 
 	// required for module to work
 	// in addition parameters are passed as array in case of minification of these file
-	app.controller("MainCtrl", ["$scope","$http", MainCtrl]);	
+	app.controller("MainCtrl", ["$scope","$http", "$interval", MainCtrl]);	
 }());
