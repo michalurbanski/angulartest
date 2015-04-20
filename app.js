@@ -41,11 +41,24 @@
 			$scope.errorMessage = "Cannot fetch user repos for user " + $scope.user.name;
 		}
 
+		var decrementCountdown = function(){
+			$scope.countdown -= 1; 
+			if($scope.countdown < 1) {
+				$scope.search($scope.username);
+			}
+		}
+
+		var startCountdown = function(){
+
+
+		}
+
 		$scope.message = "Hello angular";
 		$scope.sortOrder = "-stargazers_count"; // allows dynamic sorting
 		$scope.os = os; 
+		$scope.countdown = 5; 
 
-
+		startCountdown(); 
 	};
 
 

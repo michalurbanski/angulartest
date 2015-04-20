@@ -25,6 +25,9 @@
 			<div>{{username}}</div>
 			<img ng-src="{{user.avatar_url}}" title="{{user.name}}" width="25%"/>
 		</div>
+		<div>
+			{{countdown}}
+		</div>
 		<form name="searchUser" ng-submit="search(username);">
 			<!-- required in input below requires that ng-click has to be defined on form instead of input type submit --> 
 			<input type="search" required placeholder="Username" ng-model="username"/>
