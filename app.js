@@ -6,7 +6,7 @@
 	var app = angular.module("mainModule", []); // empty parentheses create new module, instead of searching one 
 
 	// in current version of angular (v1.3.15) controller needs to be in a module
-	var MainCtrl = function($scope, $http, $interval, $log){
+	var MainCtrl = function($scope, $http, $interval, $log, $location, $anchorScroll){
 
 		var os = {
 			src : "http://41.media.tumblr.com/802e00b2139ae9d77f172d586ab9fe42/tumblr_njplfbZDeI1s29bjuo1_1280.png",
@@ -39,6 +39,10 @@
 
 		var onRepos = function(response){
 			$scope.repos = response.data; 
+
+			// scroll down to results if not visible
+			$location.hash("userDetails");
+			$anchorScroll(); 
 		}
 
 		var onErrorRepos = function(reason){
@@ -69,5 +73,5 @@
 
 	// required for module to work
 	// in addition parameters are passed as array in case of minification of these file
-	app.controller("MainCtrl", ["$scope","$http", "$interval","$log", MainCtrl]);	
+	app.controller("MainCtrl", ["$scope","$http", "$interval","$log","$location", "$anchorScroll", MainCtrl]);	
 }());
