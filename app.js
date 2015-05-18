@@ -2,11 +2,10 @@
 
 (function(){
 
-	// this requires ng-app="mainModule" directive
+	// this requires ng-app="mainModule" directive to be present in html
 	var app = angular.module("mainModule", []); // empty parentheses create new module, instead of searching one 
 
-
-	// in current version of angular controller needs to be in module
+	// in current version of angular (v1.3.15) controller needs to be in a module
 	var MainCtrl = function($scope, $http, $interval){
 
 		var os = {

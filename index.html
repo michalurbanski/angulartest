@@ -3,7 +3,7 @@
 	<title>First angular.js app</title>
 	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="app.js"></script>
-	<script type="text/javascript" src="modulepattern.js"></script>
+	<script type="text/javascript" src="modulepattern.js"></script><!-- this is not required for angular app, only for test purposes --> 
 </head>
 <body ng-controller="MainCtrl">
 	<h1>Welcome to angular app</h1>
@@ -23,10 +23,10 @@
 	<div>
 		<div>
 			<div>{{username}}</div>
+			<div>
+				{{countdown}}
+			</div>
 			<img ng-src="{{user.avatar_url}}" title="{{user.name}}" width="25%"/>
-		</div>
-		<div>
-			{{countdown}}
 		</div>
 		<form name="searchUser" ng-submit="search(username);">
 			<!-- required in input below requires that ng-click has to be defined on form instead of input type submit --> 
@@ -34,7 +34,7 @@
 			<input type="submit" value="Search" />
 		</form>
 	</div>
-	<div ng-include="'userdetails.html'"> 
+	<div ng-include="'userdetails.html'"> <!-- single quotes required -->
 	</div>
 
 </body>
