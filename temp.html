@@ -1,0 +1,30 @@
+<h1>Welcome to angular app</h1>
+{{ 50/10 }}
+{{message}}
+
+<div>
+	This page has been created using {{os.name}}
+	<div>
+		<img ng-src="{{os.src}}" title="{{os.name}}" width="25%"/><!-- ng-src required, in other case browser tries to download what's in src tag --> 
+	</div>
+	<div>
+		User name on github is: {{user.login}}
+		{{errorMessage}}
+	</div>
+</div>
+<div>
+	<div>
+		<div>{{username}}</div>
+		<div>
+			{{countdown}}
+		</div>
+		<img ng-src="{{user.avatar_url}}" title="{{user.name}}" width="25%"/>
+	</div>
+	<form name="searchUser" ng-submit="search(username);">
+		<!-- required in input below requires that ng-click has to be defined on form instead of input type submit --> 
+		<input type="search" required placeholder="Username" ng-model="username"/>
+		<input type="submit" value="Search" />
+	</form>
+</div>
+<div id="userDetails" ng-include="'userdetails.html'"> <!-- single quotes required -->
+</div>
