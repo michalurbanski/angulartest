@@ -3,7 +3,9 @@
 (function(){
 
 	// this requires ng-app="mainModule" directive to be present in html
-	var app = angular.module("mainModule"); // empty parentheses create new module, instead of searching one 
+	// empty parentheses create new module, instead of searching one 
+	// Note: when module is created in another file remember not use parentheses in module creation
+	var app = angular.module("mainModule"); 
 
 	// in current version of angular (v1.3.15) controller needs to be in a module
 	var MainCtrl = function($scope, $interval, $location){
@@ -18,7 +20,7 @@
 				$interval.cancel(countdownInterval);
 			}
 
-			// code to go to correct route
+			// TODO: code to go to correct route
 		}
 
 		var onErrorMessage = function(response){
