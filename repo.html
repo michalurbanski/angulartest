@@ -1,18 +1,19 @@
 <h1>Repo details for: "{{reponame}}", user: "{{username}}"</h1>
-<div>
-	TO BE COMPLETED
-
-	{{errorMessage}}
+<div ng-show="errorMessage">
+	Error: {{errorMessage}}
 </div>
 <div>
 	Open issues count: {{openIssuesCount}}
 </div>
-<h2>Contributors</h2>
-<div>
-	<ul> 
-		<li ng-repeat="user in contributors | orderBy:+login"><!-- orderBy does not seem to work --> 
-			{{user.login}} 
-			<img ng-src="{{user.avatar_url}}" title="{{user.login}}" width="100px"/>
-		</li>
-	</ul>
+<div ng-show="contributors">
+	<h2>Contributors</h2>
+	<div>
+		<ul> 
+			<!-- Note: single quotes in order by condition are required in order to work -->
+			<li ng-repeat="user in contributors | orderBy:'+login'">  
+				{{user.login}} 
+				<img ng-src="{{user.avatar_url}}" title="{{user.login}}" width="100px"/>
+			</li>
+		</ul>
+	</div>
 </div>

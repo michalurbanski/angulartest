@@ -4,12 +4,10 @@
 	var RepoController = function($scope, github, $routeParams){
 		$scope.username = $routeParams.username;
 		$scope.reponame = $routeParams.reponame;
-	
+
 		function onReposComplete(data){
 			$scope.openIssuesCount = data.open_issues_count; 
-			//$scope.userrepos = data;
 
-			//TODO: get conributors for project 
 			github.getContributors(data.contributors_url).then(onContributorsSuccess, onError);
 		};
 
