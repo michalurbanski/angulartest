@@ -21,6 +21,7 @@
 			}
 
 			// TODO: code to go to correct route
+			$location.path("/user/" + username);
 		}
 
 		var onErrorMessage = function(response){
