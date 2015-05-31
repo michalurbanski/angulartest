@@ -17,9 +17,29 @@
 				});
 		};
 
+		// Gets details for specific repository
+		var getRepoDetails = function(username, reponame){
+			// sample url to repo details
+			//https://api.github.com/repos/angular/angular-hint
+
+			return $http.get("https://api.github.com/repos/" + username + "/" + reponame)
+				.then(function(response){
+					return response.data; 
+				});
+		};
+
+		var getContributors = function(contributorsUrl){
+			return $http.get(contributorsUrl)
+				.then(function(response){
+					return response.data; 
+				});
+		};
+
 		return {
 			getUser: getUser, 
-			getRepos: getRepos
+			getRepos: getRepos,
+			getRepoDetails : getRepoDetails, 
+			getContributors: getContributors
 		};
 	};
 

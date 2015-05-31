@@ -1,11 +1,29 @@
 (function(){
 	var app = angular.module("mainModule"); // use existing module
 
-	var RepoController = function(){
+	var RepoController = function($scope, github, $routeParams){
+		$scope.username = $routeParams.username;
+		$scope.reponame = $routeParams.reponame;
+	
+		function onReposComplete(data){
+			$scope.openIssuesCount = data.open_issues_count; 
+			//$scope.userrepos = data;
 
+			//TODO: get conributors for project 
+			github.getContributors(data.contributors_url).then(onContributorsSuccess, onError);
+		};
+
+		function onContributorsSuccess(data){
+			$scope.contributors = data; 
+		};
+
+		function onError(response){
+			$scope.errorMessage = response;
+		};
+
+		github.getRepoDetails($scope.username, $scope.reponame).then(onReposComplete, onError);
 	};
 
-	//TODO: fill with content
+	app.controller("RepoController", ["$scope", "github","$routeParams", RepoController]);
 
-	app.controller("RepoController", RepoController);
 }());
