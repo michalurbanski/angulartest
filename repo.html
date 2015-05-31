@@ -8,4 +8,11 @@
 	Open issues count: {{openIssuesCount}}
 </div>
 <h2>Contributors</h2>
-{{contributors}}
+<div>
+	<ul> 
+		<li ng-repeat="user in contributors | orderBy:+login"><!-- orderBy does not seem to work --> 
+			{{user.login}} 
+			<img ng-src="{{user.avatar_url}}" title="{{user.login}}" width="100px"/>
+		</li>
+	</ul>
+</div>
